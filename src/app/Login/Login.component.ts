@@ -14,8 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private service:MyServiceService, private route:Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSubmit(){
     this.service.getUserBId(this.password).subscribe(

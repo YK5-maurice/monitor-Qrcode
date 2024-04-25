@@ -32,6 +32,7 @@ button {
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  text-align: center;
 }
 
 button:hover {
@@ -40,5 +41,6 @@ button:hover {
 a{
   color: white;
   text-decoration: none;
+  margin-left: 25%;
 }
 
