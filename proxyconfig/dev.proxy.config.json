@@ -1,0 +1,7 @@
+{
+  "/**": {
+  "target": "https://ebank.gtbankci.com/payme_api/api/GetTransactions",
+  "secure": false,
+  "changeOrigin":true
+  }
+  }

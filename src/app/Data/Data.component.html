@@ -45,29 +45,76 @@
   </nav>
 </div>
 
-<div class="table-wrapper" style="width:90%">
+<div class="table-wrapper" style="width:100%">
   <h1>{{ titre }}</h1>
 
-  <table id="myTable" class="table table-striped table-bordered table-sm row-border hover"style="width:100% ">
-    <thead >
-      <tr>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Email</th>
-        <th>Contact</th>
-        <th>Mot de passe</th>
-      </tr>
+  <div class="switches">
+    <label for=""> choose a colunm to delete or show</label>:
+    <label>
+      <select name="columns" id="columns" [(ngModel)]="selectedColumn" (change)="toggleColumn(selectedColumn)">
+        <option value=""></option>
+        <option *ngFor="let column of columns" [value]="column.name">
+          <span>{{ column.name }}</span>
+          <span class="switch">
+            <input type="checkbox" [checked]="!column.hidden" (change)="toggleColumn(column)" hidden>
+            <span class="slider"></span>
+          </span>
+        </option>
+      </select>
+    </label>
+  </div>
+
+  <div class="table-responsive" style="overflow-x: auto;">
+
+  <table id="myTable" class="table-striped table-bordered  row-border hover" >
+    <thead>
+        <tr>
+            <th  [hidden]="columns[0].hidden">ID</th>
+            <th [hidden]="columns[1].hidden">Nom</th>
+            <th [hidden]="columns[2].hidden">Email</th>
+            <th  [hidden]="columns[3].hidden">Tel</th>
+            <th  [hidden]="columns[4].hidden">Gu_id</th>
+            <th [hidden]="columns[5].hidden">UserIdCustomer</th>
+            <th [hidden]="columns[6].hidden">TransactionType</th>
+            <th [hidden]="columns[7].hidden">AccountToCredit</th>
+            <th [hidden]="columns[8].hidden">Amount</th>
+            <th  [hidden]="columns[9].hidden">Remarks</th>
+            <th [hidden]="columns[10].hidden">IsGTBAccount</th>
+            <th  [hidden]="columns[11].hidden">IsOrangeMoney</th>
+            <th [hidden]="columns[12].hidden">IsMoovMoney</th>
+            <th [hidden]="columns[13].hidden">IsMTNMoney</th>
+            <th  [hidden]="columns[14].hidden">Status_qrCode</th>
+            <th  [hidden]="columns[15].hidden">Insert_Date</th>
+        </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let personne of personnes">
-        <td>{{ personne.id }}</td>
-        <td>{{ personne.nom }}</td>
-        <td>{{ personne.prenom }}</td>
-        <td>{{ personne.email }}</td>
-        <td>{{ personne.contact }}</td>
-        <td>{{ personne.motpass }}</td>
-      </tr>
+        <tr *ngFor="let transaction of transactions">
+            <td [hidden]="columns[0].hidden">{{ transaction.id }}</td>
+            <td  [hidden]="columns[1].hidden">{{ transaction.nom }}</td>
+            <td  [hidden]="columns[2].hidden">{{ transaction.email }}</td>
+            <td  [hidden]="columns[3].hidden">{{ transaction.tel }}</td>
+            <td  [hidden]="columns[4].hidden">{{ transaction.gu_id }}</td>
+            <td  [hidden]="columns[5].hidden">{{ transaction.userIdCustomer }}</td>
+            <td  [hidden]="columns[6].hidden">{{ transaction.transactionType }}</td>
+            <td  [hidden]="columns[7].hidden">{{ transaction.AccountToCredit }}</td>
+            <td  [hidden]="columns[8].hidden">{{ transaction.Amount }}</td>
+            <td  [hidden]="columns[9].hidden">{{ transaction.Remarks }}</td>
+            <td  [hidden]="columns[10].hidden">{{ transaction.isGTBAccount }}</td>
+            <td  [hidden]="columns[11].hidden">{{ transaction.isOrangeMoney }}</td>
+            <td  [hidden]="columns[12].hidden">{{ transaction.isMoovMoney }}</td>
+            <td  [hidden]="columns[13].hidden">{{ transaction.isMTNMoney }}</td>
+            <td [hidden]="columns[14].hidden">{{ transaction.status_qrCode }}</td>
+            <td [hidden]="columns[15].hidden">{{ transaction.Insert_Date }}</td>
+        </tr>
     </tbody>
-  </table>
+</table>
 </div>
+
+
+</div>
+
+
+
+
+
+

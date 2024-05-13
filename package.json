@@ -21,10 +21,13 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "datatables.net": "^2.0.5",
+    "datatables.net-buttons": "^3.0.2",
     "jquery": "^3.7.1",
+    "ngx-toastr": "^18.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.12.0"
+    "zone.js": "~0.12.0",
+  "datatables.net-dt": "^1.11.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.11",
